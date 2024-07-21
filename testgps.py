@@ -1,8 +1,8 @@
 import serial
 import time
 
-serial_port = '/dev/ttyAMA0'  # Change to your serial port
-baud_rate = 9600
+serial_port = '/dev/ttyS0'  # Change to your serial port
+baud_rate   = 9600
 
 try:
     ser = serial.Serial(serial_port, baud_rate, timeout=1)
@@ -13,11 +13,13 @@ except serial.SerialException as e:
 
 # Function to read and log GNSS data
 def read_gnss_data():
-    with open('data/gps_data.csv', 'a') as f:
+    with open('dataGPS/gps_data.csv', 'a') as f:
         while True:
             line = ser.readline().decode('ascii', errors='replace').strip()
             if line.startswith('$GPRMC'):
-                parts = line.split(',')
+            	parts = line.split(',')
+		# Repalce empty parts with NaN
+		#parts = [part if part else 'NaN' for part in parts]
                 if len(parts) > 9 and parts[2] == 'A':
                     timestamp = time.strftime('%Y-%m-%d %H:%M:%S', time.gmtime())
                     data = [
@@ -36,7 +38,7 @@ def read_gnss_data():
                     f.write(','.join(data) + '\n')
                     f.flush()
                     print("Logged data:", data)
-            time.sleep(1)
+            time.sleep(0.1)
 
 # Start reading and logging GNSS data
 read_gnss_data()
