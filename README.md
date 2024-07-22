@@ -1,6 +1,6 @@
 # Content of this repo
 
-In this repo I am retrieving GNSS sensor data from a bunch of Raspberry Pi boards under different environments. Particularly, the R01 (first Raspberry) is running Raspbian OS 32 bit (a version from 2022).
+In this repo I am retrieving GNSS sensor data from a bunch of Raspberry Pi boards under different environments. Particularly, the R01 (first Raspberry, 3 model B) is running python code (using the libraries `serial`, and also `adafruit_bme280` and `RPi.GPIO` for other tests) in Raspbian OS 32 bit (a version from 2022).
 
 # Done
 
