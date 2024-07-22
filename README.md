@@ -18,4 +18,6 @@ The [documentation](https://components101.com/sites/default/files/component_data
 * Operation bands and satellites
 * "Booting" time
 
-At present, it takes some good 5 minutes to stabilise the messages received. By trial and error, I have established that the blue LED is blinking when the sensor is receiving signal (ergo, also correctly wired). 
+At present, it takes some good 5 minutes to stabilise the messages received. By trial and error, I have established that the blue LED is blinking when the sensor is receiving signal (ergo, also correctly wired). This means that next points of interest to inspect are going to be:
+* Check signal integrity
+* Check received satellite's signal intensity/attenuation
