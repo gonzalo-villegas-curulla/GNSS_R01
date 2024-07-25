@@ -44,17 +44,43 @@ def print_gps_data(msg):
         print(f"Track Angle: {msg.true_course}")
         print(f"Date: {msg.datestamp}")
     elif isinstance(msg, pynmea2.types.talker.GSV):
+        print(f"======================================================")
         print(f"Number of Satellites in View: {msg.num_sv_in_view}")
+        total_snr      = 0
+        num_snr_values = 0
         try:
             num_sv = int(msg.num_sv_in_view)
+            for idx in range(num_sv):
 
-            for i in range(num_sv):
+                # Enumerate satellites for ease of read
+                print(f"[{idx}] SatNumb")
+
+                prn_num   = getattr(msg, f'sv_prn_num_{idx+1}', None)
+                elevation = getattr(msg, f'elevation_deg_{idx+1}', None)
+                azimuth   = getattr(msg, f'azimuth_{idx+1}', None)
+                snr       = getattr(msg, f'snr_{idx+1}', None)
+
+                if snr:
+                    total_snr += float(snr)
+                    num_snr_values += 1
+
                 print(f"Satellite PRN Number: {msg.sv_prn_num_1}")
                 print(f"Elevation: {msg.elevation_deg_1}°")
                 print(f"Azimuth: {msg.azimuth_1}°")
-                print(f"SNR (C/N0): {msg.snr_1} dB-Hz")
+                # print(f"SNR (C/N0): {msg.snr_1} dB-Hz")
+                print(f"SNR (C/No): {snr} dB-Hz")
+
+            if num_snr_values>0:
+                average_snr = total_snr / num_snr_values
+                print(f"\n===============================")
+                print(f"||  Average SNR: {average_snr:.2f} dB-Hz  ||")
+                print(f"===============================")
+
         except (TypeError, ValueError) as e:
             print(f"Error processing GSV data: {e}")
+        
+        print(f"======================================================")
+
 
 def main():
     # Serial port configuration

@@ -34,6 +34,9 @@ Time-To-First-Fix (All satellites at -130 dBm)
 * <1s for hot start (autonomous)
 * <3s for aided starts (depending on aiding data connection speed and latency)
 
+### Patch antenna
+
+I have two small aptch antennas. The largest is square of 25 mm ceramic element. The smaller one is approximately one third of this size. With the largest one, I can achieve a stable SNR of 23, 28 and 38 dB-Hz, with 28 dB being the most commonly stable over time. The number of satellites in view was always 12.
 
 ### Accuracy
 
@@ -60,8 +63,6 @@ At present, it takes some good 5 minutes to stabilise the messages received. By 
 It appears that the data would be useless while getting the keys from inside the house and while inside the shop. The rest of the trajectory resembles the path to the shop (with correct axes scaling). What am I missing?
 * The data has to be processed
 * The quality of the transducer or the board components may be only sufficiently correct for DIY purposes
-
-
 
 
 
