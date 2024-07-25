@@ -23,6 +23,30 @@ I have managed to:
 ### What I find
 The [documentation](https://components101.com/sites/default/files/component_datasheet/NEO6MV2%20GPS%20Module%20Datasheet.pdf) proposes the following bit of information
 
+Receiver type
+* 50 channels
+* GPS L1
+* SBAS: WAAS, EGNOS, MSAS, GAGAN
+
+Time-To-First-Fix (All satellites at -130 dBm)
+* 32s for Cold Start (autonomous)
+* 32s for warm start (autonomous)
+* <1s for hot start (autonomous)
+* <3s for aided starts (depending on aiding data connection speed and latency)
+
+
+### Accuracy
+
+* Max navigation update rate: 5 Hz
+* Horizontal position: 2.5 m (autonomous), 2.0 m (SBAS)
+* Velocity: 0.1 m/s
+* Heading : 0.5 degrees
+* Dynamic limit: < 4 g
+* Altitutude limit: 50 km
+* Velocity limit: 500 m/s (1800 km/h)
+
+
+### Some observations
 
 
 At present, it takes some good 5 minutes to stabilise the messages received. By trial and error, I have established that the blue LED is blinking when the sensor is receiving signal (ergo, also correctly wired). This means that next points of interest to inspect are going to be:
