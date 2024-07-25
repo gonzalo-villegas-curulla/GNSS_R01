@@ -57,8 +57,21 @@ At present, it takes some good 5 minutes to stabilise the messages received. By 
 
 ![](DATA_GPS/ShoppingTest.png)
 
-It appears that the data would be useless while getting the keys from inside the house and while inside the shop. The rest of the trajectory resembles the path to the shop (with correct axes scaling). What are we missing?
+It appears that the data would be useless while getting the keys from inside the house and while inside the shop. The rest of the trajectory resembles the path to the shop (with correct axes scaling). What am I missing?
 * The data has to be processed
 * The quality of the transducer or the board components may be only sufficiently correct for DIY purposes
+
+
+
+
+
+
+# Parallel (in time) tests:
+
+### THP reads: Temperature Humidity Pressue
+
+The same way GNSS data can be compared with reads from Garmin watch, so does the pressure hourly/daily variations. The additional interest here is to work with the ASD1115 converter.
+
+I got an "I2C ADC+PGA" mod: 4 channel, 16 bits. (documentation may be found [here](https://learn.adafruit.com/adafruit-4-channel-adc-breakouts/downloads)).
 
 
