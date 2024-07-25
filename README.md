@@ -10,13 +10,20 @@ I have managed to:
 * store the file and scp it to my local machine
 * plot a few data arrays
 
-# Ongoing work
+# Documentation
 
-The [documentation](https://components101.com/sites/default/files/component_datasheet/NEO6MV2%20GPS%20Module%20Datasheet.pdf) of the hat has not yet clarified (or I have not yet come across it) some conditions for sufficient performance, namely:
+
+
+### My questions
 * Signal intensity
 * Transducer orientation
 * Operation bands and satellites
-* "Booting" time
+* Satellite finding time
+
+### What I find
+The [documentation](https://components101.com/sites/default/files/component_datasheet/NEO6MV2%20GPS%20Module%20Datasheet.pdf) proposes the following bit of information
+
+
 
 At present, it takes some good 5 minutes to stabilise the messages received. By trial and error, I have established that the blue LED is blinking when the sensor is receiving signal (ergo, also correctly wired). This means that next points of interest to inspect are going to be:
 * Check signal integrity
