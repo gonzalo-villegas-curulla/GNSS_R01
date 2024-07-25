@@ -45,16 +45,21 @@ def print_gps_data(msg):
         print(f"Date: {msg.datestamp}")
     elif isinstance(msg, pynmea2.types.talker.GSV):
         print(f"Number of Satellites in View: {msg.num_sv_in_view}")
-        for i in range(msg.num_sv_in_view):
-            print(f"Satellite PRN Number: {msg.sv_prn_num_1}")
-            print(f"Elevation: {msg.elevation_deg_1}°")
-            print(f"Azimuth: {msg.azimuth_1}°")
-            print(f"SNR (C/N0): {msg.snr_1} dB-Hz")
+        try:
+            num_sv = int(msg.num_sv_in_view)
+
+            for i in range(num_sv):
+                print(f"Satellite PRN Number: {msg.sv_prn_num_1}")
+                print(f"Elevation: {msg.elevation_deg_1}°")
+                print(f"Azimuth: {msg.azimuth_1}°")
+                print(f"SNR (C/N0): {msg.snr_1} dB-Hz")
+        except (TypeError, ValueError) as e:
+            print(f"Error processing GSV data: {e}")
 
 def main():
     # Serial port configuration
     serial_port = '/dev/ttyS0' # /ttyAMA0
-    baud_rate = 9600
+    baud_rate   = 9600
 
     # Open serial port
     ser = serial.Serial(serial_port, baud_rate, timeout=1)
