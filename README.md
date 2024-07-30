@@ -56,6 +56,9 @@ At present, it takes some good 5 minutes to stabilise the messages received. By 
 * Check signal integrity
 * Check received satellite's signal intensity/attenuation
 
+
+With a consumer SMA active antenna, the SNR observed was between 29 dB and 33 dB.
+
 ## Example test: going shopping around the corner
 
 ![](DATA_GPS/ShoppingTest.png)
